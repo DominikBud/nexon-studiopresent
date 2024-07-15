@@ -3,7 +3,11 @@ import FoundationsWrapper from "./components/FoundationsWrapper";
 import Header from "./components/Header";
 import JumperRack from "./components/JumperRack";
 import { useSweatersData } from "./contexts/SweatersDataContext";
-import { arrayMove } from "@dnd-kit/sortable";
+import {
+  arrayMove,
+  horizontalListSortingStrategy,
+  SortableContext,
+} from "@dnd-kit/sortable";
 
 function App() {
   const { sweaters, setSweaters, foundationSweaters, setFoundationSweaters } =
@@ -61,8 +65,13 @@ function App() {
     <>
       <Header />
       <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        <JumperRack />
-        <FoundationsWrapper />
+        <SortableContext
+          strategy={horizontalListSortingStrategy}
+          items={sweaters}
+        >
+          <JumperRack />
+          <FoundationsWrapper />
+        </SortableContext>
       </DndContext>
     </>
   );
