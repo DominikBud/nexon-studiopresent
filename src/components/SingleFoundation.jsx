@@ -2,9 +2,11 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { useSweatersData } from "../contexts/SweatersDataContext";
+import Sweater from "./Sweater";
 
 function SingleFoundation() {
-  const users = [{ name: "dominik" }];
+  const { sweaters, foundationSweaters } = useSweatersData();
 
   return (
     <div className="foundation__wrapper">
@@ -25,8 +27,11 @@ function SingleFoundation() {
       </a>
       <p className="sweaterscount__text">0</p>
       <h2 className="foundationname__text">LÁMPÁS ’92 ALAPÍTVÁNY </h2>
-      <SortableContext strategy={verticalListSortingStrategy} items={users}>
+      <SortableContext strategy={verticalListSortingStrategy} items={sweaters}>
         <img className="shelf" src="src\assets\shelf.png" alt="shelf" />
+        {foundationSweaters.map((sweater) => (
+          <Sweater key={sweater.id} sweater={sweater} />
+        ))}
       </SortableContext>
     </div>
   );

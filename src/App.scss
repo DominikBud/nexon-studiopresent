@@ -29,8 +29,11 @@ body {
 
 .jumperrack__wrapper {
   width: 100%;
+  background-image: url("src\\assets\\coathanger.png");
+  background-size: cover;
   position: relative;
   height: 400px;
+  display: flex;
 }
 
 .foundation__wrapper {
@@ -67,8 +70,6 @@ body {
 }
 
 .sweater__img {
-  position: absolute;
-  top: 38%;
   height: 150px;
   width: 120px;
 }

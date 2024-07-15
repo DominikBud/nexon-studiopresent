@@ -5,7 +5,7 @@ function Sweater({ sweater }) {
   const { id, sweaterImg } = sweater;
 
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable(sweater);
+    useSortable({ id: sweater.id });
 
   const style = {
     transition,
@@ -13,16 +13,9 @@ function Sweater({ sweater }) {
   };
 
   return (
-    <img
-      ref={setNodeRef}
-      {...attributes}
-      {...listeners}
-      style={style}
-      className="sweater__img"
-      style={{ left: `${id * 110}px` }}
-      src={sweaterImg}
-      alt="sweater"
-    ></img>
+    <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
+      <img className="sweater__img" src={sweaterImg} alt="sweater"></img>
+    </div>
   );
 }
 
