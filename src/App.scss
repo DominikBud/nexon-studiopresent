@@ -1,0 +1,74 @@
+@import "./variables";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $light-blue;
+  p {
+    margin: 0;
+  }
+}
+
+.header__wrapper {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.header__image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.cloathanger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.jumperrack__wrapper {
+  width: 100%;
+  position: relative;
+  height: 400px;
+}
+
+.foundation__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.information__img,
+.link__img {
+  width: 50px;
+  height: 50px;
+}
+
+.shelf {
+  width: 400px;
+}
+
+.sweaterscount__text {
+  font-weight: bold;
+  font-size: 120px;
+  color: $white;
+}
+
+.foundationname__text {
+  color: $dark-blue;
+  font-size: 35px;
+}
+.foundations__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sweater__img {
+  position: absolute;
+  top: 38%;
+  height: 150px;
+  width: 120px;
+}
