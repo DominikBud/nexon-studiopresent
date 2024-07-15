@@ -45,6 +45,7 @@ body {
 
 .information__img,
 .link__img {
+  cursor: pointer;
   width: 50px;
   height: 50px;
 }
@@ -75,7 +76,7 @@ body {
 }
 
 .foldedsweater__img {
-  width: 50px;
+  width: 120px;
   height: auto;
 }
 
@@ -85,4 +86,47 @@ body {
   flex-direction: column;
   background-size: cover;
   width: 600px;
+  height: 100px;
+}
+
+.information__popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 30px;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  padding-inline: 30px;
+  padding-bottom: 20px;
+  background-color: $navy-blue;
+
+  .close__wrapper {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+
+    cursor: pointer;
+    background-color: $dark-blue;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    border-radius: 50%;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  h2 {
+    color: $white;
+    font-weight: bold;
+    font-size: 50px;
+  }
+  p {
+    color: $white;
+    font-size: 25px;
+  }
 }
