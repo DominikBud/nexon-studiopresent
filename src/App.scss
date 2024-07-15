@@ -73,3 +73,16 @@ body {
   height: 150px;
   width: 120px;
 }
+
+.foldedsweater__img {
+  width: 50px;
+  height: auto;
+}
+
+.shelf__sortable {
+  background-image: url("src\\assets\\shelf.png");
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  width: 600px;
+}

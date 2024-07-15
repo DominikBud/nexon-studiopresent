@@ -48,6 +48,9 @@ const sweatersInital = [
     sweaterImg: "src\\assets\\sweater9.png",
     foldedSweater: "src\\assets\\sweater-blue.png",
   },
+];
+
+const foundationSweatersInitial = [
   {
     id: 10,
     sweaterImg: "src\\assets\\sweater10.png",
@@ -64,8 +67,6 @@ const sweatersInital = [
     foldedSweater: "src\\assets\\sweater-blue.png",
   },
 ];
-
-const foundationSweatersInitial = [];
 
 function SweatersDataContextProvider({ children }) {
   const [sweaters, setSweaters] = useState(sweatersInital);

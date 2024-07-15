@@ -1,8 +1,8 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-function Sweater({ sweater }) {
-  const { id, sweaterImg } = sweater;
+function Sweater({ sweater, folded }) {
+  const { id, sweaterImg, foldedSweater } = sweater;
 
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: sweater.id });
@@ -14,7 +14,11 @@ function Sweater({ sweater }) {
 
   return (
     <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
-      <img className="sweater__img" src={sweaterImg} alt="sweater"></img>
+      <img
+        className={folded ? "foldedsweater__img" : "sweater__img"}
+        src={folded ? foldedSweater : sweaterImg}
+        alt="sweater"
+      ></img>
     </div>
   );
 }
