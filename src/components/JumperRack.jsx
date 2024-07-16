@@ -6,7 +6,7 @@ import Sweater from "./Sweater";
 import { useSweatersData } from "../contexts/SweatersDataContext";
 
 function JumperRack() {
-  const { sweaters } = useSweatersData();
+  const { sweaters, sweatersInitial } = useSweatersData();
   return (
     <div className="jumperrack__wrapper">
       <SortableContext

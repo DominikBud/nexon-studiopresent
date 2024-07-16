@@ -1,13 +1,9 @@
 import { closestCorners, DndContext } from "@dnd-kit/core";
+import { arrayMove } from "@dnd-kit/sortable";
 import FoundationsWrapper from "./components/FoundationsWrapper";
 import Header from "./components/Header";
 import JumperRack from "./components/JumperRack";
 import { useSweatersData } from "./contexts/SweatersDataContext";
-import {
-  arrayMove,
-  horizontalListSortingStrategy,
-  SortableContext,
-} from "@dnd-kit/sortable";
 
 function App() {
   const { sweaters, setSweaters, foundationSweaters, setFoundationSweaters } =
@@ -26,7 +22,6 @@ function App() {
         : "foundations";
 
       if (activeList === overList) {
-        // Rearrange items within the same list
         if (activeList === "sweaters") {
           const oldIndex = sweaters.findIndex((item) => item.id === active.id);
           const newIndex = sweaters.findIndex((item) => item.id === over.id);
@@ -43,19 +38,23 @@ function App() {
           );
         }
       } else {
-        // Move item from one list to the other
         if (activeList === "sweaters") {
           const activeItem = sweaters.find((item) => item.id === active.id);
-          setSweaters(sweaters.filter((item) => item.id !== active.id));
-          setFoundationSweaters([...foundationSweaters, activeItem]);
+          setSweaters((prevSweaters) =>
+            prevSweaters.filter((item) => item.id !== active.id)
+          );
+          setFoundationSweaters((prevFoundationSweaters) => [
+            ...prevFoundationSweaters,
+            activeItem,
+          ]);
         } else {
           const activeItem = foundationSweaters.find(
             (item) => item.id === active.id
           );
-          setFoundationSweaters(
-            foundationSweaters.filter((item) => item.id !== active.id)
+          setFoundationSweaters((prevFoundationSweaters) =>
+            prevFoundationSweaters.filter((item) => item.id !== active.id)
           );
-          setSweaters([...sweaters, activeItem]);
+          setSweaters((prevSweaters) => [...prevSweaters, activeItem]);
         }
       }
     }
@@ -64,14 +63,13 @@ function App() {
   return (
     <>
       <Header />
-      <DndContext collisionDetection={closestCorners} onDragEnd={onDragEnd}>
-        <SortableContext
-          strategy={horizontalListSortingStrategy}
-          items={sweaters}
-        >
-          <JumperRack />
-          <FoundationsWrapper />
-        </SortableContext>
+      <DndContext
+        collisionDetection={closestCorners}
+        onDragEnd={onDragEnd}
+        onDragOver={(e) => console.log(e)}
+      >
+        <JumperRack />
+        <FoundationsWrapper />
       </DndContext>
     </>
   );

@@ -87,6 +87,8 @@ function SweatersDataContextProvider({ children }) {
         foundationSweaters,
         setFoundationSweaters,
         reset,
+        sweatersInital,
+        foundationSweatersInitial,
       }}
     >
       {children}
