@@ -43,24 +43,25 @@ const sweatersInital = [
     sweaterImg: "src\\assets\\sweater8.png",
     foldedSweater: "src\\assets\\sweater-lightgreen.png",
   },
-  {
-    id: 9,
-    sweaterImg: "src\\assets\\sweater9.png",
-    foldedSweater: "src\\assets\\sweater-maroon.png",
-  },
 ];
 
-const foundationSweatersInitial = [
+const foundationSweaters1Initial = [
   {
     id: 10,
     sweaterImg: "src\\assets\\sweater10.png",
     foldedSweater: "src\\assets\\sweater-darkgreen.png",
   },
+];
+
+const foundationSweaters2Initial = [
   {
     id: 11,
     sweaterImg: "src\\assets\\sweater11.png",
     foldedSweater: "src\\assets\\sweater-blue.png",
   },
+];
+
+const foundationSweaters3Initial = [
   {
     id: 12,
     sweaterImg: "src\\assets\\sweater12.png",
@@ -68,15 +69,35 @@ const foundationSweatersInitial = [
   },
 ];
 
+const foundationSweaters4Initial = [
+  {
+    id: 9,
+    sweaterImg: "src\\assets\\sweater9.png",
+    foldedSweater: "src\\assets\\sweater-maroon.png",
+  },
+];
+
 function SweatersDataContextProvider({ children }) {
   const [sweaters, setSweaters] = useState(sweatersInital);
-  const [foundationSweaters, setFoundationSweaters] = useState(
-    foundationSweatersInitial
+  const [foundationSweaters1, setFoundationSweaters1] = useState(
+    foundationSweaters1Initial
+  );
+  const [foundationSweaters2, setFoundationSweaters2] = useState(
+    foundationSweaters2Initial
+  );
+  const [foundationSweaters3, setFoundationSweaters3] = useState(
+    foundationSweaters3Initial
+  );
+  const [foundationSweaters4, setFoundationSweaters4] = useState(
+    foundationSweaters4Initial
   );
 
   function reset() {
     setSweaters(sweatersInital);
-    setFoundationSweaters(foundationSweatersInitial);
+    setFoundationSweaters1(foundationSweaters1Initial);
+    setFoundationSweaters2(foundationSweaters2Initial);
+    setFoundationSweaters3(foundationSweaters3Initial);
+    setFoundationSweaters4(foundationSweaters4Initial);
   }
 
   return (
@@ -84,11 +105,24 @@ function SweatersDataContextProvider({ children }) {
       value={{
         sweaters,
         setSweaters,
-        foundationSweaters,
-        setFoundationSweaters,
+
         reset,
         sweatersInital,
-        foundationSweatersInitial,
+        foundationSweaters1,
+        setFoundationSweaters1,
+        foundationSweaters1Initial,
+
+        foundationSweaters2,
+        setFoundationSweaters2,
+        foundationSweaters2Initial,
+
+        foundationSweaters3,
+        setFoundationSweaters3,
+        foundationSweaters3Initial,
+
+        foundationSweaters4,
+        setFoundationSweaters4,
+        foundationSweaters4Initial,
       }}
     >
       {children}

@@ -1,15 +1,20 @@
 import {
+  horizontalListSortingStrategy,
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useSweatersData } from "../contexts/SweatersDataContext";
 import Sweater from "./Sweater";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import InformationPopup from "./InformationPopup";
 
-function SingleFoundation() {
-  const { foundationSweaters, foundationSweatersInitial } = useSweatersData();
+function SingleFoundation({ foundationSweaters, forFoundation }) {
   const [showPopup, setShowPopup] = useState(false);
+
+  const foundationSweatersIds = useMemo(
+    () => foundationSweaters.map((col) => col.id),
+    [foundationSweaters]
+  );
 
   return (
     <>
@@ -39,12 +44,17 @@ function SingleFoundation() {
         <p className="sweaterscount__text">{foundationSweaters.length}</p>
         <h2 className="foundationname__text">LÁMPÁS ’92 ALAPÍTVÁNY </h2>
         <SortableContext
+          items={foundationSweatersIds}
           strategy={verticalListSortingStrategy}
-          items={foundationSweaters}
         >
           <div className="shelf__sortable">
             {foundationSweaters.map((sweater) => (
-              <Sweater key={sweater.id} sweater={sweater} folded={true} />
+              <Sweater
+                key={sweater.id}
+                sweater={sweater}
+                forFoundation={forFoundation}
+                folded={true}
+              />
             ))}
           </div>
         </SortableContext>
