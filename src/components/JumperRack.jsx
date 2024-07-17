@@ -22,16 +22,15 @@ function JumperRack() {
 
   async function writeValues() {
     fetch(
-      "https://docs.google.com/spreadsheets/d/1Vod0YY1-zNcID2z4v61kkfh0deNcUYmsmsccrtJWwD0/edit?gid=0#gid=0",
+      "https://sheet.best/api/sheets/ef88f364-071e-4660-ab3a-23198788b8e8",
+
       {
         method: "POST",
         mode: "cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify([
-          { ...foundationsCount, "Created at": new Date() },
-        ]),
+        body: JSON.stringify([{ ...foundationsCount, date: new Date() }]),
       }
     )
       .then((r) => r.json())
@@ -41,7 +40,7 @@ function JumperRack() {
       })
       .catch((error) => {
         // Errors are reported there
-        console.log(error);
+        console.log("error", error);
       });
   }
 
