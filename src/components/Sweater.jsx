@@ -1,6 +1,5 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { createPortal } from "react-dom";
 
 function Sweater({ sweater, folded, forFoundation }) {
   const { id, sweaterImg, foldedSweater } = sweater;
@@ -19,7 +18,7 @@ function Sweater({ sweater, folded, forFoundation }) {
     transform: CSS.Transform.toString(transform),
   };
 
-  if (isDragging) return;
+  if (isDragging) return null;
 
   return (
     <div ref={setNodeRef} {...attributes} {...listeners} style={style}>

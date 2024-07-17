@@ -8,7 +8,7 @@ import Sweater from "./Sweater";
 import { useMemo, useState } from "react";
 import InformationPopup from "./InformationPopup";
 
-function SingleFoundation({ foundationSweaters, forFoundation }) {
+function SingleFoundation({ foundationSweaters, forFoundation, name }) {
   const [showPopup, setShowPopup] = useState(false);
 
   const foundationSweatersIds = useMemo(
@@ -21,6 +21,7 @@ function SingleFoundation({ foundationSweaters, forFoundation }) {
       <InformationPopup
         showPopup={showPopup}
         close={() => setShowPopup(false)}
+        name={name}
       />
       <div className="foundation__wrapper">
         <div className="information__wrapper">
@@ -42,20 +43,27 @@ function SingleFoundation({ foundationSweaters, forFoundation }) {
           </a>
         </div>
         <p className="sweaterscount__text">{foundationSweaters.length}</p>
-        <h2 className="foundationname__text">LÁMPÁS ’92 ALAPÍTVÁNY </h2>
+        <h2 className="foundationname__text">{name} </h2>
         <SortableContext
           items={foundationSweatersIds}
           strategy={verticalListSortingStrategy}
         >
-          <div className="shelf__sortable">
-            {foundationSweaters.map((sweater) => (
-              <Sweater
-                key={sweater.id}
-                sweater={sweater}
-                forFoundation={forFoundation}
-                folded={true}
-              />
-            ))}
+          <div className="soratable__wrapper">
+            <div className="shelf__sortable">
+              {foundationSweaters.length == 0 ? (
+                <p>Nesto</p>
+              ) : (
+                foundationSweaters.map((sweater) => (
+                  <Sweater
+                    key={sweater.id}
+                    sweater={sweater}
+                    forFoundation={forFoundation}
+                    folded={true}
+                  />
+                ))
+              )}
+            </div>
+            <img src="src/assets/shelf.png" className="shelf" alt="shelf" />
           </div>
         </SortableContext>
       </div>

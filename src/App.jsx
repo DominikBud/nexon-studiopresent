@@ -3,6 +3,7 @@ import {
   closestCorners,
   DndContext,
   DragOverlay,
+  rectIntersection,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import FoundationsWrapper from "./components/FoundationsWrapper";
@@ -29,8 +30,14 @@ function App() {
 
   const [activeSweater, setActiveSweater] = useState(null);
 
+  const foundationSweaters = {
+    first: { items: foundationSweaters1, setItems: setFoundationSweaters1 },
+    second: { items: foundationSweaters2, setItems: setFoundationSweaters2 },
+    third: { items: foundationSweaters3, setItems: setFoundationSweaters3 },
+    fourth: { items: foundationSweaters4, setItems: setFoundationSweaters4 },
+  };
+
   function onDragEnd(event) {
-    console.log(event);
     const { active, over } = event;
     if (!over) return;
 
@@ -48,54 +55,11 @@ function App() {
           const newIndex = sweaters.findIndex((item) => item.id === over.id);
           setSweaters(arrayMove(sweaters, oldIndex, newIndex));
         } else {
-          let oldIndex;
-          let newIndex;
-          switch (event.active.data.current.forFoundation) {
-            case "first":
-              oldIndex = foundationSweaters1.findIndex(
-                (item) => item.id === active.id
-              );
-              newIndex = foundationSweaters1.findIndex(
-                (item) => item.id === over.id
-              );
-              setFoundationSweaters1(
-                arrayMove(foundationSweaters1, oldIndex, newIndex)
-              );
-              break;
-            case "second":
-              oldIndex = foundationSweaters2.findIndex(
-                (item) => item.id === active.id
-              );
-              newIndex = foundationSweaters2.findIndex(
-                (item) => item.id === over.id
-              );
-              setFoundationSweaters2(
-                arrayMove(foundationSweaters2, oldIndex, newIndex)
-              );
-              break;
-            case "third":
-              oldIndex = foundationSweaters3.findIndex(
-                (item) => item.id === active.id
-              );
-              newIndex = foundationSweaters3.findIndex(
-                (item) => item.id === over.id
-              );
-              setFoundationSweaters3(
-                arrayMove(foundationSweaters3, oldIndex, newIndex)
-              );
-              break;
-            case "fourth":
-              oldIndex = foundationSweaters4.findIndex(
-                (item) => item.id === active.id
-              );
-              newIndex = foundationSweaters4.findIndex(
-                (item) => item.id === over.id
-              );
-              setFoundationSweaters4(
-                arrayMove(foundationSweaters4, oldIndex, newIndex)
-              );
-              break;
-          }
+          const foundationKey = active.data.current.forFoundation;
+          const { items, setItems } = foundationSweaters[foundationKey];
+          const oldIndex = items.findIndex((item) => item.id === active.id);
+          const newIndex = items.findIndex((item) => item.id === over.id);
+          setItems(arrayMove(items, oldIndex, newIndex));
         }
       } else {
         if (activeList === "sweaters") {
@@ -103,50 +67,17 @@ function App() {
           setSweaters((prevSweaters) =>
             prevSweaters.filter((item) => item.id !== active.id)
           );
-          setFoundationSweaters1((prevFoundationSweaters) => [
-            ...prevFoundationSweaters,
-            activeItem,
-          ]);
+          const foundationKey = over.data.current.forFoundation;
+          const { setItems } = foundationSweaters[foundationKey];
+          setItems((prevItems) => [...prevItems, activeItem]);
         } else {
-          let activeItem;
-          switch (event.active.data.current.forFoundation) {
-            case "first":
-              activeItem = foundationSweaters1.find(
-                (item) => item.id === active.id
-              );
-              setFoundationSweaters1((prevFoundationSweaters) =>
-                prevFoundationSweaters.filter((item) => item.id !== active.id)
-              );
-              setSweaters((prevSweaters) => [...prevSweaters, activeItem]);
-              break;
-            case "second":
-              activeItem = foundationSweaters2.find(
-                (item) => item.id === active.id
-              );
-              setFoundationSweaters2((prevFoundationSweaters) =>
-                prevFoundationSweaters.filter((item) => item.id !== active.id)
-              );
-              setSweaters((prevSweaters) => [...prevSweaters, activeItem]);
-              break;
-            case "third":
-              activeItem = foundationSweaters3.find(
-                (item) => item.id === active.id
-              );
-              setFoundationSweaters3((prevFoundationSweaters) =>
-                prevFoundationSweaters.filter((item) => item.id !== active.id)
-              );
-              setSweaters((prevSweaters) => [...prevSweaters, activeItem]);
-              break;
-            case "fourth":
-              activeItem = foundationSweaters4.find(
-                (item) => item.id === active.id
-              );
-              setFoundationSweaters4((prevFoundationSweaters) =>
-                prevFoundationSweaters.filter((item) => item.id !== active.id)
-              );
-              setSweaters((prevSweaters) => [...prevSweaters, activeItem]);
-              break;
-          }
+          const foundationKey = active.data.current.forFoundation;
+          const { items, setItems } = foundationSweaters[foundationKey];
+          const activeItem = items.find((item) => item.id === active.id);
+          setItems((prevItems) =>
+            prevItems.filter((item) => item.id !== active.id)
+          );
+          setSweaters((prevSweaters) => [...prevSweaters, activeItem]);
         }
       }
     }
@@ -155,7 +86,6 @@ function App() {
   function onDragStart(event) {
     if (event.active.data.current?.type === "sweater") {
       setActiveSweater(event.active.data.current.sweater);
-      return;
     }
   }
 
@@ -164,9 +94,8 @@ function App() {
       <Header />
       <DndContext
         onDragStart={onDragStart}
-        collisionDetection={closestCenter}
+        collisionDetection={rectIntersection}
         onDragEnd={onDragEnd}
-        onDragOver={(e) => console.log(e)}
       >
         <JumperRack />
         <FoundationsWrapper />

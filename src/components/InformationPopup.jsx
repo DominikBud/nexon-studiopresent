@@ -10,7 +10,7 @@ function InformationPopup({ showPopup, close }) {
               alt="close"
             />
           </a>
-          <h2>The standard Lorem Ipsum passage</h2>
+          <h2>{name}</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

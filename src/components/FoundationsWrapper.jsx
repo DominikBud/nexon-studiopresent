@@ -16,18 +16,22 @@ function FoundationsWrapper() {
         <SingleFoundation
           foundationSweaters={foundationSweaters1}
           forFoundation={"first"}
+          name={`LÁMPÁS ’92ALAPÍTVÁNY`}
         />
         <SingleFoundation
           foundationSweaters={foundationSweaters2}
           forFoundation={"second"}
+          name={`SZENT ISTVÁN KIRÁLY ZENEI ALAPÍTVÁNY`}
         />
         <SingleFoundation
           foundationSweaters={foundationSweaters3}
           forFoundation={"third"}
+          name={`AUTIZMUS ALAPÍTVÁNY`}
         />
         <SingleFoundation
           foundationSweaters={foundationSweaters4}
           forFoundation={"fourth"}
+          name={`ÉLELMISZERBANK EGYESÜLET`}
         />
       </div>
       <div className="resetbutton__wrapper">

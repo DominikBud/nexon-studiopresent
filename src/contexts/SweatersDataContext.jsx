@@ -92,6 +92,13 @@ function SweatersDataContextProvider({ children }) {
     foundationSweaters4Initial
   );
 
+  const foundationsCount = {
+    cntFoundation1: foundationSweaters1.length,
+    cntFoundation2: foundationSweaters2.length,
+    cntFoundation3: foundationSweaters3.length,
+    cntFoundation4: foundationSweaters4.length,
+  };
+
   function reset() {
     setSweaters(sweatersInital);
     setFoundationSweaters1(foundationSweaters1Initial);
@@ -123,6 +130,8 @@ function SweatersDataContextProvider({ children }) {
         foundationSweaters4,
         setFoundationSweaters4,
         foundationSweaters4Initial,
+
+        foundationsCount,
       }}
     >
       {children}

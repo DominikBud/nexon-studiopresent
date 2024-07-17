@@ -11,14 +11,16 @@ body {
 
 .header__wrapper {
   width: 100%;
-  height: 500px;
+  height: 400px;
   position: relative;
 }
 
 .header__image {
   position: absolute;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  background-size: cover;
+  content: url("src\\assets\\headerImage2022.png");
 }
 
 .cloathanger {
@@ -32,9 +34,8 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding-top: 150px;
-  padding-bottom: 120px;
-  padding-inline: 50px;
+
+  padding-inline: 20px;
 
   @media (min-width: 1080px) {
     flex-direction: column-reverse;
@@ -42,6 +43,9 @@ body {
       display: flex;
       gap: 20px;
     }
+  }
+  @media (max-width: 768px) {
+    padding-top: 20px;
   }
 }
 
@@ -61,13 +65,13 @@ body {
 .foundationname__text {
   color: $dark-blue;
   font-size: 35px;
+  text-align: center;
   margin: 0;
 }
 .foundations__wrapper {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-top: 50px;
 
   @media (min-width: 1080px) {
     flex-direction: row;
@@ -76,13 +80,14 @@ body {
 }
 
 .jumperrack__wrapper {
-  width: 100vw;
+  width: 100%;
   background-image: url("src\\assets\\coathanger.png");
   background-size: cover;
   position: relative;
   height: 350px;
   display: flex;
   gap: 20px;
+  overflow: hidden;
 
   button {
     position: absolute;
@@ -105,6 +110,10 @@ body {
   z-index: 101;
   height: 150px;
   width: 125px;
+  @media (max-width: 768px) {
+    width: 49px;
+    height: 20px;
+  }
 }
 
 .foldedsweater__img {
@@ -112,15 +121,19 @@ body {
   height: auto;
 }
 
+.shelf {
+  width: 100%;
+}
+
 .shelf__sortable {
   width: 100%;
-
-  background-image: url("src\\assets\\shelf.png");
   display: flex;
   flex-direction: column;
-  background-size: contain;
-  background-repeat: no-repeat;
+  justify-content: end;
   height: 100px;
+}
+
+.sortable__wrapper {
 }
 
 .information__popup {
@@ -166,6 +179,7 @@ body {
 }
 
 .resetbutton__wrapper {
+  margin-top: 30px;
   width: 100%;
   display: flex;
   justify-content: center;
