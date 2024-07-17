@@ -15,22 +15,22 @@ function FoundationsWrapper() {
       <div className="foundations__wrapper">
         <SingleFoundation
           foundationSweaters={foundationSweaters1}
-          forFoundation={"first"}
+          forFoundation={2}
           name={`LÁMPÁS ’92ALAPÍTVÁNY`}
         />
         <SingleFoundation
           foundationSweaters={foundationSweaters2}
-          forFoundation={"second"}
+          forFoundation={3}
           name={`SZENT ISTVÁN KIRÁLY ZENEI ALAPÍTVÁNY`}
         />
         <SingleFoundation
           foundationSweaters={foundationSweaters3}
-          forFoundation={"third"}
+          forFoundation={4}
           name={`AUTIZMUS ALAPÍTVÁNY`}
         />
         <SingleFoundation
           foundationSweaters={foundationSweaters4}
-          forFoundation={"fourth"}
+          forFoundation={5}
           name={`ÉLELMISZERBANK EGYESÜLET`}
         />
       </div>

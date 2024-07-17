@@ -1,11 +1,11 @@
-import { SortableContext } from "@dnd-kit/sortable";
+import { useDroppable } from "@dnd-kit/core";
 import { useSweatersData } from "../contexts/SweatersDataContext";
 import Sweater from "./Sweater";
-import { useEffect, useMemo, useState } from "react";
 
 function JumperRack() {
   const { sweaters, reset, foundationsCount } = useSweatersData();
-  const sweaterIds = useMemo(() => sweaters.map((col) => col.id), [sweaters]);
+
+  const { setNodeRef } = useDroppable({ id: 1 });
 
   async function writeValues() {
     fetch(
@@ -41,11 +41,11 @@ function JumperRack() {
 
   return (
     <div className="jumperrack__wrapper">
-      <SortableContext items={sweaterIds}>
+      <div ref={setNodeRef}>
         {sweaters.map((sweater) => (
           <Sweater key={sweater.id} sweater={sweater} />
         ))}
-      </SortableContext>
+      </div>
       {!sweaters.length && (
         <button
           onClick={() => {

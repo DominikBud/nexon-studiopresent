@@ -5,14 +5,12 @@ import {
 import { useMemo, useState } from "react";
 import InformationPopup from "./InformationPopup";
 import Sweater from "./Sweater";
+import { useDroppable } from "@dnd-kit/core";
 
 function SingleFoundation({ foundationSweaters, forFoundation, name }) {
   const [showPopup, setShowPopup] = useState(false);
 
-  const foundationSweatersIds = useMemo(
-    () => foundationSweaters.map((col) => col.id),
-    [foundationSweaters]
-  );
+  const { setNodeRef } = useDroppable({ id: forFoundation });
 
   return (
     <>
@@ -42,10 +40,7 @@ function SingleFoundation({ foundationSweaters, forFoundation, name }) {
         </div>
         <p className="sweaterscount__text">{foundationSweaters.length}</p>
         <h2 className="foundationname__text">{name} </h2>
-        <SortableContext
-          items={foundationSweatersIds}
-          strategy={verticalListSortingStrategy}
-        >
+        <div ref={setNodeRef}>
           <div className="soratable__wrapper">
             <div className="shelf__sortable">
               {foundationSweaters.length == 0 ? (
@@ -63,7 +58,7 @@ function SingleFoundation({ foundationSweaters, forFoundation, name }) {
             </div>
             <img src="src/assets/shelf.png" className="shelf" alt="shelf" />
           </div>
-        </SortableContext>
+        </div>
       </div>
     </>
   );

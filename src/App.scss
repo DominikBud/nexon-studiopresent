@@ -69,6 +69,7 @@ body {
   margin: 0;
 }
 .foundations__wrapper {
+  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -109,6 +110,10 @@ body {
       background-color: $dark-blue;
     }
   }
+}
+
+.sweater__wrapper {
+  z-index: 3000;
 }
 
 .sweater__img {
