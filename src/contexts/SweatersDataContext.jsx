@@ -8,30 +8,13 @@ const sweatersInital = [
     sweaterImg: "src\\assets\\sweater1.png",
     foldedSweater: "src\\assets\\sweater-white.png",
   },
+];
+
+const foundationSweaters1Initial = [
   {
-    id: 2,
-    sweaterImg: "src\\assets\\sweater2.png",
+    id: 10,
+    sweaterImg: "src\\assets\\sweater10.png",
     foldedSweater: "src\\assets\\sweater-darkgreen.png",
-  },
-  {
-    id: 3,
-    sweaterImg: "src\\assets\\sweater3.png",
-    foldedSweater: "src\\assets\\sweater-lightblue.png",
-  },
-  {
-    id: 4,
-    sweaterImg: "src\\assets\\sweater4.png",
-    foldedSweater: "src\\assets\\sweater-red.png",
-  },
-  {
-    id: 5,
-    sweaterImg: "src\\assets\\sweater5.png",
-    foldedSweater: "src\\assets\\sweater-green.png",
-  },
-  {
-    id: 6,
-    sweaterImg: "src\\assets\\sweater6.png",
-    foldedSweater: "src\\assets\\sweater-lightblue.png",
   },
   {
     id: 7,
@@ -45,19 +28,16 @@ const sweatersInital = [
   },
 ];
 
-const foundationSweaters1Initial = [
-  {
-    id: 10,
-    sweaterImg: "src\\assets\\sweater10.png",
-    foldedSweater: "src\\assets\\sweater-darkgreen.png",
-  },
-];
-
 const foundationSweaters2Initial = [
   {
     id: 11,
     sweaterImg: "src\\assets\\sweater11.png",
     foldedSweater: "src\\assets\\sweater-blue.png",
+  },
+  {
+    id: 6,
+    sweaterImg: "src\\assets\\sweater6.png",
+    foldedSweater: "src\\assets\\sweater-lightblue.png",
   },
 ];
 
@@ -67,6 +47,16 @@ const foundationSweaters3Initial = [
     sweaterImg: "src\\assets\\sweater12.png",
     foldedSweater: "src\\assets\\sweater-lightblue.png",
   },
+  {
+    id: 4,
+    sweaterImg: "src\\assets\\sweater4.png",
+    foldedSweater: "src\\assets\\sweater-red.png",
+  },
+  {
+    id: 5,
+    sweaterImg: "src\\assets\\sweater5.png",
+    foldedSweater: "src\\assets\\sweater-green.png",
+  },
 ];
 
 const foundationSweaters4Initial = [
@@ -74,6 +64,16 @@ const foundationSweaters4Initial = [
     id: 9,
     sweaterImg: "src\\assets\\sweater9.png",
     foldedSweater: "src\\assets\\sweater-maroon.png",
+  },
+  {
+    id: 2,
+    sweaterImg: "src\\assets\\sweater2.png",
+    foldedSweater: "src\\assets\\sweater-darkgreen.png",
+  },
+  {
+    id: 3,
+    sweaterImg: "src\\assets\\sweater3.png",
+    foldedSweater: "src\\assets\\sweater-lightblue.png",
   },
 ];
 
