@@ -1,12 +1,10 @@
 import {
-  horizontalListSortingStrategy,
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { useSweatersData } from "../contexts/SweatersDataContext";
-import Sweater from "./Sweater";
 import { useMemo, useState } from "react";
 import InformationPopup from "./InformationPopup";
+import Sweater from "./Sweater";
 
 function SingleFoundation({ foundationSweaters, forFoundation, name }) {
   const [showPopup, setShowPopup] = useState(false);

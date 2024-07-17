@@ -102,7 +102,7 @@ function App() {
         {activeSweater &&
           createPortal(
             <DragOverlay>
-              <Sweater sweater={activeSweater} />
+              <Sweater sweater={activeSweater} noStyle={true} />
             </DragOverlay>,
             document.body
           )}

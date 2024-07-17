@@ -1,7 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-function Sweater({ sweater, folded, forFoundation }) {
+function Sweater({ sweater, folded, forFoundation, noStyle }) {
   const { id, sweaterImg, foldedSweater } = sweater;
 
   const {

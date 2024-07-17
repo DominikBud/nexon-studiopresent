@@ -1,4 +1,4 @@
-function InformationPopup({ showPopup, close }) {
+function InformationPopup({ showPopup, close, name }) {
   return (
     <>
       {showPopup && (
