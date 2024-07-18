@@ -72,7 +72,10 @@ function Statistics() {
       )}
       {allDonations === undefined ? null : (
         <div className="donationstable__wrapper">
-          <DonationsTable allDonations={allDonations} />
+          <DonationsTable
+            allDonations={allDonations}
+            setAllDonations={setAllDonations}
+          />
           {countDonations !== undefined && (
             <Chart countDonations={countDonations}></Chart>
           )}

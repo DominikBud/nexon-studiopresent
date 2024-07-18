@@ -152,6 +152,10 @@ body {
   @media (max-width: 1080px) {
     width: 300px;
   }
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 }
 
 .shelf__sortable {
@@ -159,7 +163,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  height: 100px;
+  height: 125px;
 }
 
 .sortable__wrapper {
@@ -235,7 +239,18 @@ body {
     text-align: center;
     flex-direction: column;
     align-items: center;
-
+    gap: 20px;
+    button {
+      background-color: $navy-blue;
+      border: 3px solid $white;
+      padding-block: 10px;
+      padding-inline: 20px;
+      font-size: 35px;
+      font-weight: 600;
+      color: $white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
     table {
       td {
         background-color: $dark-blue;
@@ -307,4 +322,22 @@ body {
 .jumperrack__sortable {
   width: 100%;
   height: 500px;
+}
+
+.pagination__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  .arrow__wrapper {
+    background-color: $dark-blue;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .left {
+      transform: rotate(180deg);
+    }
+  }
 }
