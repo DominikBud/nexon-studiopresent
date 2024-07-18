@@ -42,10 +42,16 @@ function JumperRack() {
   return (
     <div className="jumperrack__wrapper">
       <SortableContext items={sweaterIds}>
-        {sweaters.map((sweater) => (
-          <Sweater key={sweater.id} sweater={sweater} />
+        {sweaters.map((sweater, _i) => (
+          <Sweater
+            key={sweater.id}
+            sweater={sweater}
+            positionAbsolute={true}
+            absoluteIdnex={_i}
+          />
         ))}
       </SortableContext>
+
       {!sweaters.length && (
         <button
           onClick={() => {

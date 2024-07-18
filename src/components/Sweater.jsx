@@ -1,7 +1,13 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-function Sweater({ sweater, folded, forFoundation }) {
+function Sweater({
+  sweater,
+  folded,
+  forFoundation,
+  positionAbsolute,
+  absoluteIdnex,
+}) {
   const { id, sweaterImg, foldedSweater } = sweater;
 
   const {
@@ -18,15 +24,49 @@ function Sweater({ sweater, folded, forFoundation }) {
     transform: CSS.Transform.toString(transform),
   };
 
-  if (isDragging) return null;
+  if (isDragging)
+    return (
+      <div
+        style={
+          !folded && positionAbsolute
+            ? {
+                position: "absolute",
+                left: `${absoluteIdnex * 120}px`,
+                top: "15%",
+              }
+            : null
+        }
+        ref={setNodeRef}
+        {...attributes}
+        {...listeners}
+      >
+        <div
+          className={folded ? "foldedsweater__img" : "sweater__img"}
+          style={style}
+        ></div>
+      </div>
+    );
 
   return (
-    <div ref={setNodeRef} {...attributes} {...listeners} style={style}>
+    <div
+      style={
+        !folded && positionAbsolute
+          ? {
+              position: "absolute",
+              left: `${absoluteIdnex * 120}px`,
+              top: "15%",
+            }
+          : null
+      }
+      ref={setNodeRef}
+      {...attributes}
+      {...listeners}
+    >
       <img
-        style={{ left: `${(id - 1) * 120}px` }}
         className={folded ? "foldedsweater__img" : "sweater__img"}
         src={folded ? foldedSweater : sweaterImg}
         alt="sweater"
+        style={style}
       ></img>
     </div>
   );

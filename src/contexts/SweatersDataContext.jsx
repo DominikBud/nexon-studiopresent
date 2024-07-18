@@ -8,14 +8,6 @@ const sweatersInital = [
     sweaterImg: "src\\assets\\sweater1.png",
     foldedSweater: "src\\assets\\sweater-white.png",
   },
-];
-
-const foundationSweaters1Initial = [
-  {
-    id: 10,
-    sweaterImg: "src\\assets\\sweater10.png",
-    foldedSweater: "src\\assets\\sweater-darkgreen.png",
-  },
   {
     id: 7,
     sweaterImg: "src\\assets\\sweater7.png",
@@ -26,25 +18,9 @@ const foundationSweaters1Initial = [
     sweaterImg: "src\\assets\\sweater8.png",
     foldedSweater: "src\\assets\\sweater-lightgreen.png",
   },
-];
-
-const foundationSweaters2Initial = [
-  {
-    id: 11,
-    sweaterImg: "src\\assets\\sweater11.png",
-    foldedSweater: "src\\assets\\sweater-blue.png",
-  },
   {
     id: 6,
     sweaterImg: "src\\assets\\sweater6.png",
-    foldedSweater: "src\\assets\\sweater-lightblue.png",
-  },
-];
-
-const foundationSweaters3Initial = [
-  {
-    id: 12,
-    sweaterImg: "src\\assets\\sweater12.png",
     foldedSweater: "src\\assets\\sweater-lightblue.png",
   },
   {
@@ -57,14 +33,6 @@ const foundationSweaters3Initial = [
     sweaterImg: "src\\assets\\sweater5.png",
     foldedSweater: "src\\assets\\sweater-green.png",
   },
-];
-
-const foundationSweaters4Initial = [
-  {
-    id: 9,
-    sweaterImg: "src\\assets\\sweater9.png",
-    foldedSweater: "src\\assets\\sweater-maroon.png",
-  },
   {
     id: 2,
     sweaterImg: "src\\assets\\sweater2.png",
@@ -74,6 +42,38 @@ const foundationSweaters4Initial = [
     id: 3,
     sweaterImg: "src\\assets\\sweater3.png",
     foldedSweater: "src\\assets\\sweater-lightblue.png",
+  },
+];
+
+const foundationSweaters1Initial = [
+  {
+    id: 10,
+    sweaterImg: "src\\assets\\sweater10.png",
+    foldedSweater: "src\\assets\\sweater-darkgreen.png",
+  },
+];
+
+const foundationSweaters2Initial = [
+  {
+    id: 11,
+    sweaterImg: "src\\assets\\sweater11.png",
+    foldedSweater: "src\\assets\\sweater-blue.png",
+  },
+];
+
+const foundationSweaters3Initial = [
+  {
+    id: 12,
+    sweaterImg: "src\\assets\\sweater12.png",
+    foldedSweater: "src\\assets\\sweater-lightblue.png",
+  },
+];
+
+const foundationSweaters4Initial = [
+  {
+    id: 9,
+    sweaterImg: "src\\assets\\sweater9.png",
+    foldedSweater: "src\\assets\\sweater-maroon.png",
   },
 ];
 

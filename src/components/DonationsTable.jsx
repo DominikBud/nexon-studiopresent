@@ -10,7 +10,7 @@ function DonationsTable({ allDonations }) {
       </tr>
       {allDonations.map(
         (el, _i) =>
-          _i < 10 && (
+          _i > allDonations.length - 12 && (
             <tr key={_i}>
               <td>{el.cntFoundation1}</td>
               <td>{el.cntFoundation2}</td>

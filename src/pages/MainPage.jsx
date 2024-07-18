@@ -101,7 +101,7 @@ function MainPage() {
         {activeSweater &&
           createPortal(
             <DragOverlay>
-              <Sweater sweater={activeSweater} />
+              <Sweater sweater={activeSweater} positionAbsolute={false} />
             </DragOverlay>,
             document.body
           )}

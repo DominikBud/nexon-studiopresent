@@ -7,6 +7,7 @@ import { useSweatersData } from "../contexts/SweatersDataContext";
 import Sweater from "./Sweater";
 import { useMemo, useState } from "react";
 import InformationPopup from "./InformationPopup";
+import EmptySweater from "./EmptySweater";
 
 function SingleFoundation({ foundationSweaters, forFoundation, name }) {
   const [showPopup, setShowPopup] = useState(false);
@@ -51,7 +52,9 @@ function SingleFoundation({ foundationSweaters, forFoundation, name }) {
           <div className="soratable__wrapper">
             <div className="shelf__sortable">
               {foundationSweaters.length == 0 ? (
-                <p>Nesto</p>
+                <>
+                  <EmptySweater forFoundation={forFoundation} />
+                </>
               ) : (
                 foundationSweaters.map((sweater) => (
                   <Sweater
@@ -59,6 +62,7 @@ function SingleFoundation({ foundationSweaters, forFoundation, name }) {
                     sweater={sweater}
                     forFoundation={forFoundation}
                     folded={true}
+                    positionAbsolute={false}
                   />
                 ))
               )}

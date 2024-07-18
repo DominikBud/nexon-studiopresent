@@ -31,17 +31,16 @@ body {
 
 .foundation__wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column-reverse;
   align-items: center;
   justify-content: space-around;
 
   padding-inline: 20px;
 
-  @media (min-width: 1080px) {
-    flex-direction: column-reverse;
+  @media (max-width: 1080px) {
+    flex-direction: row;
     .information__wrapper {
       display: flex;
-      gap: 20px;
     }
   }
   @media (max-width: 768px) {
@@ -60,6 +59,10 @@ body {
   font-weight: bold;
   font-size: 120px;
   color: $white;
+
+  @media (max-width: 1080px) {
+    font-size: 80px;
+  }
 }
 
 .foundationname__text {
@@ -67,6 +70,10 @@ body {
   font-size: 35px;
   text-align: center;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 25px;
+  }
 }
 .foundations__wrapper {
   display: flex;
@@ -82,9 +89,13 @@ body {
 .jumperrack__wrapper {
   width: 100%;
   background-image: url("src\\assets\\coathanger.png");
-  background-size: cover;
+  background-size: contain;
   position: relative;
+  background-repeat: no-repeat;
   height: 350px;
+  @media (max-width: 768px) {
+    height: 200px;
+  }
   display: flex;
   gap: 20px;
   overflow: hidden;
@@ -108,21 +119,39 @@ body {
 
 .sweater__img {
   z-index: 101;
-  height: 150px;
-  width: 125px;
+  height: 220px;
+  width: 180px;
+  @media (max-width: 1080px) {
+    width: 180px;
+    height: 160px;
+  }
   @media (max-width: 768px) {
-    width: 49px;
-    height: 20px;
+    width: 120px;
+    height: 100px;
   }
 }
 
 .foldedsweater__img {
   width: 120px;
   height: auto;
+
+  @media (max-width: 768px) {
+    width: 70px;
+    height: auto;
+  }
+}
+
+.empty__sweater {
+  width: 120px;
+  height: 50px;
 }
 
 .shelf {
   width: 100%;
+
+  @media (max-width: 1080px) {
+    width: 300px;
+  }
 }
 
 .shelf__sortable {
@@ -183,6 +212,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   button {
     padding-inline: 30px;
     padding-block: 5px;
@@ -256,6 +286,7 @@ body {
 
 .navigationlink__wrapper {
   position: fixed;
+  z-index: 10000;
   top: 10%;
   left: 5%;
   border-radius: 50%;
@@ -271,4 +302,9 @@ body {
     width: 30px;
     height: 30px;
   }
+}
+
+.jumperrack__sortable {
+  width: 100%;
+  height: 500px;
 }

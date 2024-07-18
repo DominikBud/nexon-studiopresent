@@ -7,7 +7,7 @@ function Chart({ countDonations }) {
   console.log(resultArray);
 
   return (
-    <PieChart width={730} height={250}>
+    <PieChart width={1300} height={700}>
       <Pie
         data={resultArray}
         dataKey={"value"}
