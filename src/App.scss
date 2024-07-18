@@ -194,3 +194,81 @@ body {
     cursor: pointer;
   }
 }
+
+.statistic__wrapper {
+  padding-inline: 50px;
+  margin-top: 40px;
+
+  .donationstable__wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+
+    table {
+      td {
+        background-color: $dark-blue;
+        color: $white;
+        font-weight: bold;
+        font-size: 30px;
+        padding-inline: 30px;
+        padding-block: 5px;
+      }
+    }
+  }
+
+  .lastdonation__heading {
+    color: $dark-blue;
+    font-size: 80px;
+    text-align: center;
+  }
+  .count__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+
+    .donationcount__wrapper {
+      background-color: $dark-blue;
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+
+      .count__text {
+        color: $white;
+        font-weight: bold;
+        font-size: 60px;
+      }
+      .foundationname__text {
+        color: $white;
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+.navigationlink__wrapper {
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  border-radius: 50%;
+
+  background-color: $light-red;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
