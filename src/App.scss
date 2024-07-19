@@ -39,6 +39,7 @@ body {
 
   @media (max-width: 1080px) {
     flex-direction: row;
+    align-items: end;
     .information__wrapper {
       display: flex;
     }
@@ -135,6 +136,10 @@ body {
   width: 120px;
   height: auto;
 
+  @media (max-width: 1080px) {
+    width: 100px;
+    height: auto;
+  }
   @media (max-width: 768px) {
     width: 70px;
     height: auto;
@@ -164,6 +169,8 @@ body {
   flex-direction: column;
   justify-content: end;
   height: 300px;
+  margin: 0px;
+  padding: 0px;
 
   @media (max-width: 1080px) {
     height: 200px;
@@ -264,6 +271,11 @@ body {
         font-size: 30px;
         padding-inline: 5px;
         padding-block: 5px;
+        @media (max-width: 1080px) {
+          p {
+            font-size: 18px;
+          }
+        }
       }
     }
   }
@@ -274,22 +286,25 @@ body {
     text-align: center;
   }
   .count__wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1080px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
 
     .donationcount__wrapper {
       background-color: $dark-blue;
       flex: 1;
       padding: 20px;
+      border-radius: 20px;
+
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      justify-content: center;
       align-items: center;
-      border-radius: 30px;
+      justify-content: center;
+      flex-direction: column;
 
       .count__text {
         color: $white;

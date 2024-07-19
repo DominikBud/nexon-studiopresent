@@ -89,10 +89,10 @@ function SweatersDataContextProvider({ children }) {
   );
 
   const foundationsCount = {
-    cntFoundation1: foundationSweaters1.length,
-    cntFoundation2: foundationSweaters2.length,
-    cntFoundation3: foundationSweaters3.length,
-    cntFoundation4: foundationSweaters4.length,
+    lampas: foundationSweaters1.length,
+    szentistvan: foundationSweaters2.length,
+    autizmus: foundationSweaters3.length,
+    elelmiszerbank: foundationSweaters4.length,
   };
 
   function reset() {

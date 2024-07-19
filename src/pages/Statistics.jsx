@@ -17,17 +17,17 @@ function Statistics() {
 
       const sums = donations.reduce(
         (acc, obj) => {
-          acc.cntFoundation1 += Number(obj.cntFoundation1);
-          acc.cntFoundation2 += Number(obj.cntFoundation2);
-          acc.cntFoundation3 += Number(obj.cntFoundation3);
-          acc.cntFoundation4 += Number(obj.cntFoundation4);
+          acc.lampas += Number(obj.lampas);
+          acc.szentistvan += Number(obj.szentistvan);
+          acc.autizmus += Number(obj.autizmus);
+          acc.elelmiszerbank += Number(obj.elelmiszerbank);
           return acc;
         },
         {
-          cntFoundation1: 0,
-          cntFoundation2: 0,
-          cntFoundation3: 0,
-          cntFoundation4: 0,
+          lampas: 0,
+          szentistvan: 0,
+          autizmus: 0,
+          elelmiszerbank: 0,
         }
       );
 
@@ -46,19 +46,19 @@ function Statistics() {
             {countDonations && (
               <>
                 <DonationsCount
-                  count={countDonations.cntFoundation1}
+                  count={countDonations.lampas}
                   name="LÁMPÁS ’92ALAPÍTVÁNY"
                 />
                 <DonationsCount
-                  count={countDonations.cntFoundation2}
+                  count={countDonations.szentistvan}
                   name="SZENT ISTVÁN KIRÁLY ZENEI ALAPÍTVÁNY"
                 />
                 <DonationsCount
-                  count={countDonations.cntFoundation3}
+                  count={countDonations.autizmus}
                   name="AUTIZMUS ALAPÍTVÁNY"
                 />
                 <DonationsCount
-                  count={countDonations.cntFoundation4}
+                  count={countDonations.elelmiszerbank}
                   name="ÉLELMISZERBANK EGYESÜLET"
                 />
               </>

@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { useSweatersData } from "../contexts/SweatersDataContext";
 import Sweater from "./Sweater";
 import { useWriteDonations } from "../hooks/useWriteDonations";
+import EmptySweater from "./EmptySweater";
 
 function JumperRack() {
   const { sweaters, reset, foundationsCount } = useSweatersData();
@@ -33,30 +34,36 @@ function JumperRack() {
       </SortableContext>
 
       {!sweaters.length && (
-        <button
-          onClick={() => {
-            const lastRequest = localStorage.getItem("timeLastRequest");
-            const currentTime = new Date();
+        <>
+          <button
+            onClick={() => {
+              const lastRequest = localStorage.getItem("timeLastRequest");
+              const currentTime = new Date();
 
-            if (
-              lastRequest === null ||
-              Math.abs(new Date(lastRequest) - currentTime) / 1000 > 10
-            ) {
-              console.log(Math.abs(new Date(lastRequest) - currentTime) / 1000);
-              writeDonations(data);
-              reset();
-              localStorage.setItem(
-                "timeLastRequest",
-                currentTime.toISOString()
-              ); // Store in ISO format
-            } else {
-              console.log("ne moze");
-              console.log(Math.abs(new Date(lastRequest) - currentTime) / 1000);
-            }
-          }}
-        >
-          ELKULDOM
-        </button>
+              if (
+                lastRequest === null ||
+                Math.abs(new Date(lastRequest) - currentTime) / 1000 > 10
+              ) {
+                console.log(
+                  Math.abs(new Date(lastRequest) - currentTime) / 1000
+                );
+                writeDonations(data);
+                reset();
+                localStorage.setItem(
+                  "timeLastRequest",
+                  currentTime.toISOString()
+                ); // Store in ISO format
+              } else {
+                console.log("ne moze");
+                console.log(
+                  Math.abs(new Date(lastRequest) - currentTime) / 1000
+                );
+              }
+            }}
+          >
+            ELKULDOM
+          </button>
+        </>
       )}
     </div>
   );

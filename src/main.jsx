@@ -1,3 +1,5 @@
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
@@ -13,6 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <QueryClientProvider client={queryClient}>
       <SweatersDataContextProvider>
         <App />
+        <ReactQueryDevtools initialIsOpen={false} />
         <Toaster
           position="top-center"
           reverseOrder={false}
