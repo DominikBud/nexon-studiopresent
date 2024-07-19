@@ -66,10 +66,10 @@ function DonationsTable({ allDonations, setAllDonations }) {
         </tr>
         {tableData?.map((el, _i) => (
           <tr key={_i}>
-            <td>{el.cntFoundation1}</td>
-            <td>{el.cntFoundation2}</td>
-            <td>{el.cntFoundation3}</td>
-            <td>{el.cntFoundation4}</td>
+            <td>{el.lampas}</td>
+            <td>{el.szentistvan}</td>
+            <td>{el.autizmus}</td>
+            <td>{el.elelmiszerbank}</td>
             <td>{el.date}</td>
             <td>
               {" "}
