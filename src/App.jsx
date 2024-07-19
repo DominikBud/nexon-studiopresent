@@ -1,5 +1,5 @@
-import Header from "./components/Header";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Header from "./components/Header";
 import MainPage from "./pages/MainPage";
 import Statistics from "./pages/Statistics";
 

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
+import { useDeleteDonationIndex } from "../hooks/useDeleteDonationIndex";
+import DropdownSort from "./DropdownSort";
 
 const perPage = 10;
 
@@ -14,6 +16,7 @@ function DonationsTable({ allDonations, setAllDonations }) {
   const [ascendingDateSort, setAscendingDateSort] = useState(true);
   const [page, setPage] = useState(1);
   const [tableData, setTableData] = useState();
+  const { isLoading, deleteDonation } = useDeleteDonationIndex();
 
   useEffect(() => {
     setTableData(
@@ -43,32 +46,23 @@ function DonationsTable({ allDonations, setAllDonations }) {
     allDonations.map((donation, _i) => {
       if (donation === el) index = _i;
     });
-    console.log(index);
 
-    fetch(
-      `https://sheet.best/api/sheets/ef88f364-071e-4660-ab3a-23198788b8e8/${index}`,
-      {
-        method: "DELETE",
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    deleteDonation(index);
   }
 
   return (
     <>
+      <DropdownSort
+        sortAscending={() => setAscendingDateSort(false)}
+        sortDescending={() => setAscendingDateSort(true)}
+      />
       <table className="donations__table">
         <tr>
-          <td>Foundation1</td>
-          <td>Foundation2</td>
-          <td>Foundation3</td>
-          <td>Foundation4</td>
-          <td>Date</td>
+          <td>LÁMPÁS ’92ALAPÍTVÁNY</td>
+          <td>SZENT ISTVÁN KIRÁLY ZENEI ALAPÍTVÁNY</td>
+          <td> AUTIZMUS ALAPÍTVÁNY</td>
+          <td>ÉLELMISZERBANK EGYESÜLET</td>
+          <td>timestamp</td>
         </tr>
         {tableData?.map((el, _i) => (
           <tr key={_i}>
@@ -86,11 +80,11 @@ function DonationsTable({ allDonations, setAllDonations }) {
           </tr>
         ))}
       </table>
-
-      <button onClick={() => setAscendingDateSort(!ascendingDateSort)}>
-        Sort
-      </button>
-      <Pagination handleLeft={handleLeft} handleRight={handleRight} />
+      <Pagination
+        page={page}
+        handleLeft={handleLeft}
+        handleRight={handleRight}
+      />
     </>
   );
 }

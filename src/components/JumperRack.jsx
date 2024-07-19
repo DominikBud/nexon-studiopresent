@@ -1,43 +1,23 @@
 import { SortableContext } from "@dnd-kit/sortable";
+import { useMemo } from "react";
 import { useSweatersData } from "../contexts/SweatersDataContext";
 import Sweater from "./Sweater";
-import { useEffect, useMemo, useState } from "react";
+import { useWriteDonations } from "../hooks/useWriteDonations";
 
 function JumperRack() {
   const { sweaters, reset, foundationsCount } = useSweatersData();
   const sweaterIds = useMemo(() => sweaters.map((col) => col.id), [sweaters]);
+  const { writeDonations } = useWriteDonations();
 
-  async function writeValues() {
-    fetch(
-      "https://sheet.best/api/sheets/ef88f364-071e-4660-ab3a-23198788b8e8",
-
-      {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify([
-          {
-            ...foundationsCount,
-            date: new Date().toLocaleString("en-GB", {
-              dateStyle: "short",
-              timeStyle: "short",
-            }),
-          },
-        ]),
-      }
-    )
-      .then((r) => r.json())
-      .then((data) => {
-        // The response comes here
-        console.log(data);
-      })
-      .catch((error) => {
-        // Errors are reported there
-        console.log("error", error);
-      });
-  }
+  let data = JSON.stringify([
+    {
+      ...foundationsCount,
+      date: new Date().toLocaleString("en-GB", {
+        dateStyle: "short",
+        timeStyle: "short",
+      }),
+    },
+  ]);
 
   return (
     <div className="jumperrack__wrapper">
@@ -59,11 +39,11 @@ function JumperRack() {
             const currentTime = new Date();
 
             if (
-              lastRequest === null || // Check if the last request does not exist
-              Math.abs(new Date(lastRequest) - currentTime) / 1000 > 10 // Check time difference
+              lastRequest === null ||
+              Math.abs(new Date(lastRequest) - currentTime) / 1000 > 10
             ) {
               console.log(Math.abs(new Date(lastRequest) - currentTime) / 1000);
-              writeValues();
+              writeDonations(data);
               reset();
               localStorage.setItem(
                 "timeLastRequest",

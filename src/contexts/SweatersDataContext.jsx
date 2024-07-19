@@ -43,39 +43,35 @@ const sweatersInital = [
     sweaterImg: "src\\assets\\sweater3.png",
     foldedSweater: "src\\assets\\sweater-lightblue.png",
   },
-];
-
-const foundationSweaters1Initial = [
   {
     id: 10,
     sweaterImg: "src\\assets\\sweater10.png",
     foldedSweater: "src\\assets\\sweater-darkgreen.png",
   },
-];
-
-const foundationSweaters2Initial = [
   {
     id: 11,
     sweaterImg: "src\\assets\\sweater11.png",
     foldedSweater: "src\\assets\\sweater-blue.png",
   },
-];
-
-const foundationSweaters3Initial = [
   {
     id: 12,
     sweaterImg: "src\\assets\\sweater12.png",
     foldedSweater: "src\\assets\\sweater-lightblue.png",
   },
-];
-
-const foundationSweaters4Initial = [
   {
     id: 9,
     sweaterImg: "src\\assets\\sweater9.png",
     foldedSweater: "src\\assets\\sweater-maroon.png",
   },
 ];
+
+const foundationSweaters1Initial = [];
+
+const foundationSweaters2Initial = [];
+
+const foundationSweaters3Initial = [];
+
+const foundationSweaters4Initial = [];
 
 function SweatersDataContextProvider({ children }) {
   const [sweaters, setSweaters] = useState(sweatersInital);
