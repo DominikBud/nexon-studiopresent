@@ -79,7 +79,9 @@ function DonationsTable({ allDonations, setAllDonations }) {
             <td>{el.date}</td>
             <td>
               {" "}
-              <button onClick={() => deleteRow(el)}>Delete</button>{" "}
+              <button onClick={() => deleteRow(el)}>
+                <img src="src\assets\trash-can.png" alt="trash" />
+              </button>{" "}
             </td>
           </tr>
         ))}

@@ -1,15 +1,18 @@
 import {
-  horizontalListSortingStrategy,
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { useSweatersData } from "../contexts/SweatersDataContext";
-import Sweater from "./Sweater";
 import { useMemo, useState } from "react";
-import InformationPopup from "./InformationPopup";
 import EmptySweater from "./EmptySweater";
+import InformationPopup from "./InformationPopup";
+import Sweater from "./Sweater";
 
-function SingleFoundation({ foundationSweaters, forFoundation, name }) {
+function SingleFoundation({
+  foundationSweaters,
+  forFoundation,
+  name,
+  websiteLink,
+}) {
   const [showPopup, setShowPopup] = useState(false);
 
   const foundationSweatersIds = useMemo(
@@ -34,7 +37,7 @@ function SingleFoundation({ foundationSweaters, forFoundation, name }) {
             />{" "}
           </a>
 
-          <a href="https://lampas92.hu/" target="_blank">
+          <a href={websiteLink} target="_blank">
             {" "}
             <img
               className="link__img"
